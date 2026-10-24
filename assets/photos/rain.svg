@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1120" viewBox="0 0 800 1120">
+
+<defs>
+  <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.06"/></feComponentTransfer><feBlend in="SourceGraphic" mode="soft-light"/></filter>
+  <filter id="soft"><feGaussianBlur stdDeviation="18"/></filter>
+  <filter id="soft8"><feGaussianBlur stdDeviation="8"/></filter>
+</defs>
+
+<defs></defs>
+
+<defs>
+  <linearGradient id="n" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#364b6b"/><stop offset=".55" stop-color="#6c7b9b"/><stop offset="1" stop-color="#b8aaaa"/></linearGradient>
+  <radialGradient id="city"><stop offset="0" stop-color="#ffe3b3" stop-opacity=".8"/><stop offset="1" stop-color="#ffe3b3" stop-opacity="0"/></radialGradient>
+  <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".18"/><stop offset="1" stop-color="#fff" stop-opacity=".02"/></linearGradient>
+</defs>
+<rect width="800" height="1120" fill="url(#n)"/>
+<g filter="url(#soft8)" opacity=".75">
+  <circle cx="160" cy="780" r="70" fill="url(#city)"/><circle cx="330" cy="860" r="90" fill="url(#city)"/>
+  <circle cx="600" cy="800" r="80" fill="#e8b1b6" opacity=".4"/><circle cx="720" cy="900" r="60" fill="#a9c6dc" opacity=".4"/>
+</g>
+<g fill="#2e3a54" opacity=".8">
+  <rect x="0" y="680" width="100" height="440"/><rect x="110" y="740" width="80" height="380"/><rect x="210" y="700" width="120" height="420"/>
+  <rect x="350" y="760" width="90" height="360"/><rect x="460" y="690" width="130" height="430"/><rect x="610" y="730" width="90" height="390"/><rect x="720" y="700" width="80" height="420"/>
+</g>
+<g fill="#f5d9a6" opacity=".55">
+  <rect x="20" y="730" width="18" height="24"/><rect x="58" y="790" width="18" height="24"/><rect x="130" y="780" width="16" height="20"/>
+  <rect x="240" y="750" width="18" height="24"/><rect x="280" y="820" width="18" height="24"/><rect x="380" y="800" width="16" height="20"/>
+  <rect x="500" y="740" width="20" height="24"/><rect x="550" y="810" width="20" height="24"/><rect x="640" y="780" width="16" height="20"/><rect x="750" y="750" width="16" height="20"/>
+</g>
+<rect width="800" height="1120" fill="url(#glass)"/>
+<g fill="none" stroke="#f6f7ff" stroke-linecap="round">
+  <path d="M120 160 q20 90 -3 162" stroke-opacity=".35" stroke-width="10"/>
+  <path d="M260 90 q20 50 -2 100" stroke-opacity=".25" stroke-width="8"/>
+  <path d="M650 220 q18 90 -6 150" stroke-opacity=".3" stroke-width="9"/>
+  <path d="M710 480 q14 60 -3 110" stroke-opacity=".22" stroke-width="7"/>
+  <path d="M480 600 q16 72 -4 130" stroke-opacity=".25" stroke-width="8"/>
+</g>
+<g fill="#fff">
+  <circle cx="132" cy="350" r="5" opacity=".5"/><circle cx="190" cy="380" r="3" opacity=".35"/><circle cx="688" cy="410" r="4" opacity=".4"/>
+  <circle cx="500" cy="760" r="4" opacity=".3"/><circle cx="240" cy="180" r="3" opacity=".35"/><circle cx="620" cy="140" r="2.5" opacity=".3"/>
+</g>
+<g stroke="#dfe9ff" stroke-opacity=".16" stroke-width="2">
+  <path d="M40 40 L90 100"/><path d="M180 30 L230 70"/><path d="M380 60 L430 120"/><path d="M620 60 L660 100"/><path d="M740 160 L780 220"/>
+</g>
+
+<rect width="800" height="1120" filter="url(#grain)" opacity=".55" fill="transparent"/>
+</svg>

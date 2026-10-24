@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1200" viewBox="0 0 800 1200">
+
+<defs>
+  <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.06"/></feComponentTransfer><feBlend in="SourceGraphic" mode="soft-light"/></filter>
+  <filter id="soft"><feGaussianBlur stdDeviation="18"/></filter>
+  <filter id="soft8"><feGaussianBlur stdDeviation="8"/></filter>
+</defs>
+
+<defs></defs>
+
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf4"/><stop offset="1" stop-color="#fdf0f3"/></linearGradient></defs>
+<rect width="800" height="1200" fill="url(#bg)"/>
+<rect x="60" y="54" width="680" height="1092" rx="54" fill="#fffdfa" stroke="#f0e2dc"/>
+<text x="120" y="160" font-family="PingFang SC, Microsoft YaHei" font-size="44" fill="#755a56" font-weight="600">备忘录</text>
+<text x="120" y="205" font-family="PingFang SC, Microsoft YaHei" font-size="22" fill="#c0a49f">4 条 · 今天</text>
+<rect x="120" y="250" width="560" height="160" rx="28" fill="#f8edf4"/>
+<text x="150" y="300" font-family="PingFang SC, Microsoft YaHei" font-size="27" fill="#775a68">周六去海边</text>
+<text x="150" y="340" font-family="PingFang SC, Microsoft YaHei" font-size="21" fill="#b49da8">带相机、野餐垫和草莓汽水</text>
+<text x="150" y="380" font-family="PingFang SC, Microsoft YaHei" font-size="19" fill="#c4b0b9">上午 10:24</text>
+<rect x="120" y="436" width="560" height="160" rx="28" fill="#eef1fa"/>
+<text x="150" y="486" font-family="PingFang SC, Microsoft YaHei" font-size="27" fill="#5d647a">想看的电影</text>
+<text x="150" y="526" font-family="PingFang SC, Microsoft YaHei" font-size="21" fill="#98a0b6">海街日记 / 小森林 / 花束般的恋爱</text>
+<text x="150" y="566" font-family="PingFang SC, Microsoft YaHei" font-size="19" fill="#b3b9c9">昨天 21:08</text>
+<rect x="120" y="622" width="560" height="160" rx="28" fill="#f2f7ea"/>
+<text x="150" y="672" font-family="PingFang SC, Microsoft YaHei" font-size="27" fill="#61705d">买花</text>
+<text x="150" y="712" font-family="PingFang SC, Microsoft YaHei" font-size="21" fill="#9ba893">白色郁金香，或者洋桔梗</text>
+<text x="150" y="752" font-family="PingFang SC, Microsoft YaHei" font-size="19" fill="#bac4b3">周三 09:14</text>
+<rect x="120" y="808" width="560" height="160" rx="28" fill="#fff4e8"/>
+<text x="150" y="858" font-family="PingFang SC, Microsoft YaHei" font-size="27" fill="#7c6854">给自己</text>
+<text x="150" y="898" font-family="PingFang SC, Microsoft YaHei" font-size="21" fill="#b3a18e">慢一点也没关系</text>
+<text x="150" y="938" font-family="PingFang SC, Microsoft YaHei" font-size="19" fill="#c6b5a3">周二 18:40</text>
+
+<rect width="800" height="1200" filter="url(#grain)" opacity=".55" fill="transparent"/>
+</svg>

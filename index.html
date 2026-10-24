@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#111111">
+    <meta name="description" content="我的世界：一个收着照片、音乐、备忘和信件的黑白灰个人小站。">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23111111'/%3E%3Cpath d='M32 13c2.4 10.4 8.6 16.6 19 19-10.4 2.4-16.6 8.6-19 19-2.4-10.4-8.6-16.6-19-19 10.4-2.4 16.6-8.6 19-19Z' fill='%23ffffff'/%3E%3C/svg%3E">
+    <title>我的世界 · 个人主页</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 修改文字、头像、图片与音乐：见 content.js 顶部说明 -->
+    <main class="screen" id="screen">
+        <div class="grain" aria-hidden="true"></div>
+
+        <div class="status-bar">
+            <span class="status-time" id="statusTime">00:00</span>
+            <span class="status-text" id="statusText">你好</span>
+        </div>
+
+        <section class="screen-lock" id="lockScreen" aria-label="锁屏">
+            <div class="lock-top">
+                <div class="clock" id="lockTime">--:--</div>
+                <div class="clock-date" id="lockDate">星期</div>
+            </div>
+
+            <div class="notification-card">
+                <span class="notification-icon" id="notificationIcon" aria-hidden="true"></span>
+                <div class="notification-copy">
+                    <strong id="notificationTitle">欢迎回来</strong>
+                    <p id="notificationContent">今天也依然爱你。</p>
+                </div>
+            </div>
+
+            <button class="lock-hint" id="lockHint" type="button">
+                <span class="lock-arrow" aria-hidden="true"></span>
+                <span>上滑解锁</span>
+            </button>
+        </section>
+
+        <section class="screen-home" id="homeScreen" aria-label="主屏幕">
+            <div class="home-body">
+                <div class="home-left">
+                    <article class="weather-widget">
+                        <div class="weather-main">
+                            <span class="weather-date" id="homeDate">----</span>
+                            <strong class="weather-time" id="homeTime">--:--</strong>
+                            <span class="weather-place">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                                你的心里
+                            </span>
+                        </div>
+                        <div class="weather-side">
+                            <span class="weather-icon" id="weatherIcon" aria-hidden="true"></span>
+                            <strong class="weather-temp" id="weatherTemp">--°</strong>
+                            <span class="weather-desc" id="weatherDesc">--</span>
+                        </div>
+                    </article>
+
+                    <p class="motd" id="motd"></p>
+                </div>
+
+                <nav class="app-grid" id="appGrid" aria-label="应用"></nav>
+            </div>
+
+            <div class="home-dock" id="homeDock" aria-label="快捷应用"></div>
+        </section>
+
+        <div class="app-layer" id="appLayer"></div>
+
+        <button class="music-fab" id="musicFab" type="button" aria-label="打开音乐播放器">
+            <img alt="">
+            <span class="music-fab-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+            </span>
+        </button>
+
+        <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </main>
+
+    <div class="photo-viewer" id="photoViewer" role="dialog" aria-modal="true" aria-hidden="true">
+        <button class="viewer-backdrop" type="button" data-viewer-close aria-label="关闭图片"></button>
+        <figure class="viewer-card">
+            <img id="viewerImage" alt="">
+            <figcaption>
+                <strong id="viewerTitle"></strong>
+                <span id="viewerTag"></span>
+            </figcaption>
+            <button class="viewer-close" type="button" data-viewer-close aria-label="关闭">
+                <svg viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+        </figure>
+    </div>
+
+    <script src="content.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

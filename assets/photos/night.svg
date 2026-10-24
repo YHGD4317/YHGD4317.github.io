@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1200" viewBox="0 0 800 1200">
+
+<defs>
+  <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.06"/></feComponentTransfer><feBlend in="SourceGraphic" mode="soft-light"/></filter>
+  <filter id="soft"><feGaussianBlur stdDeviation="18"/></filter>
+  <filter id="soft8"><feGaussianBlur stdDeviation="8"/></filter>
+</defs>
+
+<defs></defs>
+
+<defs>
+  <linearGradient id="n" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#27345f"/><stop offset=".45" stop-color="#5d5c93"/><stop offset=".7" stop-color="#a583a9"/><stop offset="1" stop-color="#e7b5b8"/></linearGradient>
+  <radialGradient id="m"><stop offset="0" stop-color="#fff8dc"/><stop offset=".72" stop-color="#ffeebc"/><stop offset="1" stop-color="#f7d995"/></radialGradient>
+  <radialGradient id="halo"><stop offset="0" stop-color="#fff4d0" stop-opacity=".35"/><stop offset="1" stop-color="#fff4d0" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="800" height="1200" fill="url(#n)"/>
+<circle cx="560" cy="300" r="260" fill="url(#halo)"/>
+<circle cx="560" cy="300" r="92" fill="url(#m)"/>
+<circle cx="530" cy="275" r="12" fill="#efdba2" opacity=".5"/><circle cx="588" cy="330" r="18" fill="#efdba2" opacity=".4"/><circle cx="575" cy="250" r="7" fill="#efdba2" opacity=".45"/>
+<g fill="#fff6dc">
+  <circle cx="120" cy="150" r="3"/><circle cx="190" cy="250" r="1.8"/><circle cx="300" cy="120" r="2.2"/><circle cx="420" cy="230" r="1.6"/>
+  <circle cx="680" cy="150" r="2.6"/><circle cx="730" cy="330" r="1.7"/><circle cx="90" cy="420" r="2"/><circle cx="350" cy="380" r="1.5"/>
+  <circle cx="470" cy="500" r="2.4"/><circle cx="680" cy="520" r="1.8"/><circle cx="210" cy="560" r="1.6"/><circle cx="620" cy="620" r="1.4"/>
+</g>
+<g fill="#f5d8cf" opacity=".8">
+  <circle cx="700" cy="90" r="2"/><circle cx="760" cy="240" r="1.5"/><circle cx="160" cy="340" r="1.4"/><circle cx="40" cy="670" r="2"/>
+</g>
+<g filter="url(#soft)">
+  <path d="M0 820 Q150 690 310 790 T800 760 V1200 H0Z" fill="#70648c" opacity=".65"/>
+</g>
+<path d="M0 930 Q180 790 370 900 T800 870 V1200 H0Z" fill="#373a5e"/>
+<path d="M0 1030 Q190 950 390 1010 T800 980 V1200 H0Z" fill="#232743"/>
+<g fill="#f4cfae" opacity=".75">
+  <rect x="150" y="948" width="3" height="3"/><rect x="210" y="970" width="2" height="2"/><rect x="580" y="930" width="3" height="3"/><rect x="640" y="960" width="2" height="2"/>
+</g>
+<path d="M0 1115 Q200 1060 420 1110 T800 1090 V1200 H0Z" fill="#15192e"/>
+
+<rect width="800" height="1200" filter="url(#grain)" opacity=".55" fill="transparent"/>
+</svg>

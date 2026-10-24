@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1080" viewBox="0 0 800 1080">
+
+<defs>
+  <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.06"/></feComponentTransfer><feBlend in="SourceGraphic" mode="soft-light"/></filter>
+  <filter id="soft"><feGaussianBlur stdDeviation="18"/></filter>
+  <filter id="soft8"><feGaussianBlur stdDeviation="8"/></filter>
+</defs>
+
+<defs></defs>
+
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#b7c8f7"/><stop offset=".34" stop-color="#f6cbdc"/>
+    <stop offset=".62" stop-color="#ffd9bd"/><stop offset="1" stop-color="#ffe8d8"/>
+  </linearGradient>
+  <linearGradient id="ocean" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#eab8c9"/><stop offset=".3" stop-color="#a7b8e9"/>
+    <stop offset=".7" stop-color="#6f8fc1"/><stop offset="1" stop-color="#516b9c"/>
+  </linearGradient>
+  <radialGradient id="glow"><stop offset="0" stop-color="#fff6df" stop-opacity=".95"/><stop offset="1" stop-color="#fff0cc" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="800" height="1080" fill="url(#sky)"/>
+<circle cx="560" cy="430" r="250" fill="url(#glow)"/>
+<circle cx="560" cy="430" r="74" fill="#fff1d2"/>
+<path d="M0 600 Q160 570 330 598 T800 590 V1080 H0Z" fill="url(#ocean)"/>
+<path d="M0 640 Q140 615 300 642 T800 628" fill="none" stroke="#fff" stroke-opacity=".26" stroke-width="5"/>
+<path d="M0 704 Q180 674 350 706 T800 690" fill="none" stroke="#ffdfe8" stroke-opacity=".24" stroke-width="7"/>
+<path d="M0 778 Q200 748 390 780 T800 764" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="9"/>
+<g stroke="#fff" stroke-opacity=".32" stroke-width="3" fill="none">
+  <path d="M390 876 q90 -18 180 0"/><path d="M300 930 q110 -20 220 0"/><path d="M480 980 q80 -14 160 0"/>
+</g>
+<path d="M515 540 q45 -22 90 0" stroke="#fff6e7" stroke-opacity=".7" fill="none" stroke-width="4"/>
+<g fill="#5b5470" opacity=".7">
+  <path d="M180 300 q14 -12 28 0 q-14 -5 -28 0"/><path d="M215 280 q10 -9 20 0 q-10 -4 -20 0"/><path d="M250 310 q10 -9 20 0 q-10 -4 -20 0"/>
+</g>
+<g fill="#fff" opacity=".55"><circle cx="130" cy="820" r="2"/><circle cx="680" cy="770" r="2.4"/><circle cx="710" cy="920" r="1.6"/><circle cx="95" cy="990" r="1.8"/></g>
+
+<rect width="800" height="1080" filter="url(#grain)" opacity=".55" fill="transparent"/>
+</svg>

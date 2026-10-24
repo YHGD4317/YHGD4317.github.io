@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1200" viewBox="0 0 800 1200">
+
+<defs>
+  <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.06"/></feComponentTransfer><feBlend in="SourceGraphic" mode="soft-light"/></filter>
+  <filter id="soft"><feGaussianBlur stdDeviation="18"/></filter>
+  <filter id="soft8"><feGaussianBlur stdDeviation="8"/></filter>
+</defs>
+
+<defs></defs>
+
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#edf6f9"/><stop offset="1" stop-color="#f8f0f7"/></linearGradient></defs>
+<rect width="800" height="1200" fill="url(#bg)"/>
+<rect x="60" y="54" width="680" height="1092" rx="54" fill="#fcfdff" stroke="#e2ebf2"/>
+<text x="120" y="160" font-family="PingFang SC, Microsoft YaHei" font-size="40" fill="#536471" font-weight="600">文件管理</text>
+<rect x="120" y="210" width="560" height="58" rx="29" fill="#eef4f8"/>
+<text x="155" y="247" font-family="PingFang SC, Microsoft YaHei" font-size="23" fill="#a8b6c2">搜索文件</text>
+<g>
+  <rect x="120" y="310" width="360" height="200" rx="28" fill="#ddeef6"/><rect x="500" y="310" width="180" height="200" rx="28" fill="#f7e4ee"/>
+  <text x="145" y="450" font-family="PingFang SC, Microsoft YaHei" font-size="46" fill="#6a8ea4" font-weight="600">128</text>
+  <text x="145" y="485" font-family="PingFang SC, Microsoft YaHei" font-size="20" fill="#90a9b8">张照片</text>
+  <text x="525" y="450" font-family="PingFang SC, Microsoft YaHei" font-size="46" fill="#a47995" font-weight="600">12</text>
+  <text x="525" y="485" font-family="PingFang SC, Microsoft YaHei" font-size="20" fill="#b596ab">首音乐</text>
+</g>
+<text x="120" y="575" font-family="PingFang SC, Microsoft YaHei" font-size="24" fill="#70818f" font-weight="600">最近文件</text>
+<rect x="120" y="610" width="560" height="90" rx="20" fill="#fff" stroke="#e8eff4"/>
+<rect x="140" y="630" width="52" height="52" rx="12" fill="#f4d4e3"/><text x="215" y="647" font-family="PingFang SC, Microsoft YaHei" font-size="22" fill="#65737e">晚风来信.wav</text><text x="215" y="678" font-family="PingFang SC, Microsoft YaHei" font-size="18" fill="#adb8c1">音乐 · 3.4 MB</text>
+<rect x="120" y="716" width="560" height="90" rx="20" fill="#fff" stroke="#e8eff4"/>
+<rect x="140" y="736" width="52" height="52" rx="12" fill="#d5e8f2"/><text x="215" y="753" font-family="PingFang SC, Microsoft YaHei" font-size="22" fill="#65737e">海边日落.svg</text><text x="215" y="784" font-family="PingFang SC, Microsoft YaHei" font-size="18" fill="#adb8c1">图片 · 820 KB</text>
+<rect x="120" y="822" width="560" height="90" rx="20" fill="#fff" stroke="#e8eff4"/>
+<rect x="140" y="842" width="52" height="52" rx="12" fill="#f4e3c9"/><text x="215" y="859" font-family="PingFang SC, Microsoft YaHei" font-size="22" fill="#65737e">猫猫午睡.svg</text><text x="215" y="890" font-family="PingFang SC, Microsoft YaHei" font-size="18" fill="#adb8c1">图片 · 640 KB</text>
+<rect x="120" y="928" width="560" height="90" rx="20" fill="#fff" stroke="#e8eff4"/>
+<rect x="140" y="948" width="52" height="52" rx="12" fill="#e3e0f6"/><text x="215" y="965" font-family="PingFang SC, Microsoft YaHei" font-size="22" fill="#65737e">奶油色的梦.wav</text><text x="215" y="996" font-family="PingFang SC, Microsoft YaHei" font-size="18" fill="#adb8c1">音乐 · 2.8 MB</text>
+
+<rect width="800" height="1200" filter="url(#grain)" opacity=".55" fill="transparent"/>
+</svg>
