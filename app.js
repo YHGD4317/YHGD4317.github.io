@@ -1795,7 +1795,7 @@
         // 关闭模态框
         closeAllModals();
         
-        showToast('很高兴你愿意再认识我一次');
+        showToast('请重新认识我吧');
         
         // 如果有书城界面打开着，刷新它
         if (appViews.bookStore) {
