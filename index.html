@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#111111">
-    <meta name="description" content="我的世界：一个收着照片、音乐、备忘和信件的黑白灰个人小站。">
+    <meta name="description" content="欢迎来到我的世界">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23111111'/%3E%3Cpath d='M32 13c2.4 10.4 8.6 16.6 19 19-10.4 2.4-16.6 8.6-19 19-2.4-10.4-8.6-16.6-19-19 10.4-2.4 16.6-8.6 19-19Z' fill='%23ffffff'/%3E%3C/svg%3E">
-    <title>我的世界 · 个人主页</title>
+    <title>我的世界</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- 修改文字、头像、图片与音乐：见 content.js 顶部说明 -->
     <main class="screen" id="screen">
         <div class="grain" aria-hidden="true"></div>
 
@@ -79,7 +78,7 @@
         <div class="toast" id="toast" role="status" aria-live="polite"></div>
     </main>
 
-    <div class="photo-viewer" id="photoViewer" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="photo-viewer" id="photoViewer" role="dialog" aria-modal="true" aria-hidden="true" data-viewer-close>
         <button class="viewer-backdrop" type="button" data-viewer-close aria-label="关闭图片"></button>
         <figure class="viewer-card">
             <img id="viewerImage" alt="">
@@ -88,9 +87,70 @@
                 <span id="viewerTag"></span>
             </figcaption>
             <button class="viewer-close" type="button" data-viewer-close aria-label="关闭">
-                <svg viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
             </button>
         </figure>
+    </div>
+
+    <div class="modal" id="wishModal" role="dialog" aria-modal="true" aria-hidden="true">
+        <button class="modal-backdrop" type="button" data-modal-close aria-label="关闭"></button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">向我许愿</h3>
+                <button class="modal-close" type="button" data-modal-close aria-label="关闭">
+                    <svg viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-description">请描述愿望</p>
+                <input type="text" id="wishInput" class="modal-input" placeholder="输入口令..." autofocus>
+                <p class="modal-hint" id="wishHint"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="modal-btn secondary" data-modal-close>取消</button>
+                <button type="button" class="modal-btn primary" id="confirmWishBtn">确认</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="restartModal" role="dialog" aria-modal="true" aria-hidden="true">
+        <button class="modal-backdrop" type="button" data-modal-close aria-label="关闭"></button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">重新开始</h3>
+                <button class="modal-close" type="button" data-modal-close aria-label="关闭">
+                    <svg viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-description">真的要与我重新开始认识吗？</p>
+                <p class="modal-hint" style="margin-top: 16px; color: rgba(156, 163, 175, 0.9); font-size: 11px;">*点击确认后所有数据将恢复初始状态</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="modal-btn secondary" data-modal-close>取消</button>
+                <button type="button" class="modal-btn danger" id="confirmRestartBtn">确认</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="decomposeModal" role="dialog" aria-modal="true" aria-hidden="true">
+        <button class="modal-backdrop" type="button" data-modal-close aria-label="关闭"></button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">分解卡片</h3>
+                <button class="modal-close" type="button" data-modal-close aria-label="关闭">
+                    <svg viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-description">现在开始打扫重复的藏书？</p>
+                <p class="modal-hint" id="decomposeHint" style="margin-top: 8px; color: rgba(156, 163, 175, 0.9); font-size: 12px;"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="modal-btn secondary" data-modal-close>算了</button>
+                <button type="button" class="modal-btn primary" id="confirmDecomposeBtn">没错</button>
+            </div>
+        </div>
     </div>
 
     <script src="content.js"></script>
