@@ -940,9 +940,9 @@
     }
 
     function getNextUnlockRequirement(totalDrawn) {
-        if (totalDrawn >= 5) return 9; // 已解锁全部
-        if (totalDrawn >= 3) return 9; // 已解锁4级，需要9张解锁5级
-        if (totalDrawn >= 3) return 7; // 已解锁3级，需要7张解锁4级
+        if (totalDrawn >= 7) return 9; // 已解锁全部
+        if (totalDrawn >= 7) return 9; // 已解锁4级，需要9张解锁5级
+        if (totalDrawn >= 5) return 7; // 已解锁3级，需要7张解锁4级
         if (totalDrawn >= 3) return 5; // 已解锁2级，需要5张解锁3级
         if (totalDrawn >= 1) return 3; // 已解锁1级，需要3张解锁2级
         return 1; // 还未获得卡片，需要1张解锁1级
