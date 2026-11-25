@@ -118,7 +118,7 @@ const WORLD = {
         {
             id: 'b01',
             title: '红衣',
-            image: 'assets/photos/半身插3打码.png',
+            image: 'assets/photos/胸像1上色打码.png',
             color: '#300000',
             tags: ['标签1', '标签2', '标签3'],
             texts: [

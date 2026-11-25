@@ -932,20 +932,20 @@
     }
 
     function getUnlockLevel(totalDrawn) {
-        if (totalDrawn >= 9) return 7;
-        if (totalDrawn >= 7) return 5;
-        if (totalDrawn >= 5) return 3;
-        if (totalDrawn >= 3) return 2;
-        return 1;
+        if (totalDrawn < 1) return 0;
+        return Math.floor((totalDrawn + 2) / 3);
     }
 
-    function getNextUnlockRequirement(totalDrawn) {
-        if (totalDrawn >= 7) return 9; // 已解锁全部
-        if (totalDrawn >= 7) return 9; // 已解锁4级，需要9张解锁5级
-        if (totalDrawn >= 5) return 7; // 已解锁3级，需要7张解锁4级
-        if (totalDrawn >= 3) return 5; // 已解锁2级，需要5张解锁3级
-        if (totalDrawn >= 1) return 3; // 已解锁1级，需要3张解锁2级
-        return 1; // 还未获得卡片，需要1张解锁1级
+    function getNextUnlockRequirement(totalDrawn, cardData) {
+        const currentLevel = getUnlockLevel(totalDrawn);
+        const maxLevel = cardData ? cardData.texts.length : 7;
+
+        if (currentLevel >= maxLevel) return -1;
+        const neededForNextLevel = (currentLevel + 1) * 3;
+
+        const stillNeed = neededForNextLevel - totalDrawn;
+        
+        return Math.max(stillNeed, 1);
     }
 
     function drawCard() {
@@ -1268,6 +1268,13 @@
             if (!cardData) return '';
             
             const unlockLevel = getUnlockLevel(collectedCard.totalDrawn);
+            const maxLevel = cardData.texts.length;
+            const actualUnlockLevel = Math.min(unlockLevel, maxLevel);
+            const textsUnlocked = actualUnlockLevel;
+            
+            // 计算解锁下一级需要的张数
+            const neededForNextLevel = getNextUnlockRequirement(collectedCard.totalDrawn, cardData);
+            const showUnlockHint = neededForNextLevel > 0 && getUnlockLevel(collectedCard.totalDrawn) < cardData.texts.length;
             
             return `
                 <div class="book-card-shelf" data-card-id="${esc(cardData.id)}">
@@ -1282,13 +1289,17 @@
                                 ${cardData.tags.map(tag => `<span class="book-tag-pill">${esc(tag)}</span>`).join('')}
                             </div>
                             <div class="book-unlock-levels">
-                                ${[1, 2, 3].map(level => `
-                                    <span class="unlock-level-dot ${level <= unlockLevel ? 'unlocked' : 'locked'}" 
-                                          title="${level <= unlockLevel ? '已解锁' : '未解锁'}" 
+                                ${[1, 2, 3, 4, 5, 6, 7, 8].slice(0, Math.min(8, maxLevel)).map(level => {
+                                    const unlocked = level <= actualUnlockLevel;
+                                    const neededText = unlocked ? `已解锁文案 ${level}` : `需${Math.max((level * 3) - collectedCard.totalDrawn, 1)}张解锁`;
+                                    return `
+                                    <span class="unlock-level-dot ${unlocked ? 'unlocked' : 'locked'}" 
+                                          title="${neededText}" 
                                           data-act="view-card-text" data-id="${esc(cardData.id)}" data-level="${level}">
                                         ${level}
                                     </span>
-                                `).join('')}
+                                    `;
+                                }).join('')}
                             </div>
                         </div>
                     </button>
@@ -1299,7 +1310,7 @@
         return `
             <div class="book-shelf-content">
                 <div class="book-shelf-header">
-                    <h3>收藏的藏书</h3>
+                    <h3>收藏的记忆</h3>
                     <button class="book-shelf-menu" type="button" data-act="open-shelf-menu">
                         ${menuButton}
                     </button>
@@ -1309,7 +1320,7 @@
                 </div>
                 ${state.bookStore.sortingEnabled ? `
                     <div class="sorting-hint">
-                        <p>拖动卡片调整顺序，点击完成排序</p>
+                        <p>拖动卡片调整顺序，点击↓</p>
                         <button class="sorting-done-btn" type="button" data-act="finish-sorting">
                             完成排序
                         </button>
@@ -1355,7 +1366,8 @@
         const collected = getCollectedCard(cardId);
         if (!collected) return;
         
-        const selectedTextIndex = Math.min(state.bookStore.selectedCardIndex, getUnlockLevel(collected.totalDrawn) - 1);
+        const unlockLevel = Math.min(getUnlockLevel(collected.totalDrawn), cardData.texts.length);
+        const selectedTextIndex = Math.min(state.bookStore.selectedCardIndex, unlockLevel - 1);
         const view = ensureView('bookStoreDetail');
         
         view.innerHTML = `
@@ -1378,7 +1390,7 @@
                             ${cardData.texts.map((text, index) => {
                                 const levelRequired = index + 1;
                                 // 使用getUnlockLevel函数判断解锁状态
-                                const unlocked = getUnlockLevel(collected.totalDrawn) >= levelRequired;
+                                const unlocked = unlockLevel >= levelRequired;
                                 return `
                                     <button class="text-tab ${index === selectedTextIndex ? 'active' : ''} ${unlocked ? 'unlocked' : 'locked'}" 
                                             type="button" data-act="select-text" data-level="${levelRequired}"
@@ -1392,8 +1404,8 @@
                         <div class="book-detail-text">
                             <p>${esc(cardData.texts[selectedTextIndex])}</p>
                         </div>
-                        ${getUnlockLevel(collected.totalDrawn) < cardData.texts.length ? `
-                                <p class="text-progress-hint">再获得 ${getNextUnlockRequirement(collected.totalDrawn) - collected.totalDrawn} 张此卡片可解锁下一篇文案</p>
+                        ${unlockLevel < cardData.texts.length ? `
+                                <p class="text-progress-hint">再获得 ${getNextUnlockRequirement(collected.totalDrawn, cardData)} 张此卡片可解锁下一篇文案</p>
                             ` : ''}
                         <br />
                         ${collected.count > 1 ? `
@@ -1412,7 +1424,7 @@
         const isSingleDraw = results.length === 1;
         
         view.innerHTML = `
-            ${appHeader(isSingleDraw ? '获得新卡片' : '获得藏书', { 
+            ${appHeader(isSingleDraw ? '获得新卡片' : '获得记忆', { 
                 back: false,
                 actions: `<button class="head-btn" type="button" data-act="close-draw-result" aria-label="关闭">${I.close}</button>`,
                 showClose: false
@@ -1433,6 +1445,8 @@
 
     function renderSingleCardResult(result) {
         const { card, isNewCard, unlockLevel } = result;
+        const maxLevel = card.texts.length;
+        const actualUnlockLevel = Math.min(unlockLevel, maxLevel);
         
         return `
             <div class="book-result-card">
@@ -1446,11 +1460,11 @@
                         <div class="result-card-tags">
                             ${card.tags.map(tag => `<span class="result-tag">${esc(tag)}</span>`).join('')}
                         </div>
-                        <p class="result-unlock-hint">解锁第${unlockLevel}段文案</p>
+                        <p class="result-unlock-hint">解锁第${actualUnlockLevel}段文案 (${actualUnlockLevel}/${maxLevel})</p>
                     </div>
                 </div>
                 <div class="result-card-text">
-                    <p>${esc(card.texts[unlockLevel - 1])}</p>
+                    <p>${esc(card.texts[actualUnlockLevel - 1])}</p>
                 </div>
             </div>
         `;
@@ -1470,9 +1484,6 @@
             </div>
         `;
     }
-
-    // 愿望相关功能
-    
 
     function showShelfMenu() {
         const menuHTML = `
